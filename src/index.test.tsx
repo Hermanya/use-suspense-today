@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSuspense } from "./";
 import { create, act } from "react-test-renderer";
 
-const useAsyncTest = () => {
+const useApiThatIsNotSuspenseReady = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState();
 
@@ -22,7 +22,7 @@ const useAsyncTest = () => {
 };
 
 const Child = () => {
-  const { loading, data } = useAsyncTest();
+  const { loading, data } = useApiThatIsNotSuspenseReady();
   useSuspense(loading);
   return <section>{data}</section>;
 };

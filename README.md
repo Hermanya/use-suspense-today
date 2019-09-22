@@ -17,7 +17,7 @@ import * as React from 'react'
 import { useSuspense } from 'use-suspense-today'
 
 const Child = () => {
-  const { loading, data } = useApi();
+  const { loading, data } = useApiThatIsNotSuspenseReady();
   useSuspense(loading);
   return <section>{data}</section>;
 };
