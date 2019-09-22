@@ -1,13 +1,20 @@
 {
   "name": "use-suspense-today",
   "version": "1.0.0",
-  "description": "Use React Suspense today",
+  "description": "Use React Suspense today, with any data fetching library",
   "author": "Hermanya",
   "license": "MIT",
   "repository": "Hermanya/use-suspense-today",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
+  "keywords": [
+    "react",
+    "suspense",
+    "loading",
+    "apollo",
+    "react-hooks"
+  ],
   "engines": {
     "node": ">=8",
     "npm": ">=5"
@@ -21,7 +28,10 @@
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/react-test-renderer": "^16.9.0",
+    "react-test-renderer": "^16.9.0"
+  },
   "peerDependencies": {
     "react": "^16.8.6"
   },

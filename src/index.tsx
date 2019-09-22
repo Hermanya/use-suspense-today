@@ -1,23 +1,16 @@
 import * as React from 'react';
 
-export const useMyHook = () => {
-  let [{
-    counter
-  }, setState] = React.useState<{
-    counter: number;
-  }>({
-    counter: 0
-  });
+export const useSuspense = (suspended: Boolean) => {
+  const promise = React.useRef<{resolve: () => void}>()
 
-  React.useEffect(() => {
-    let interval = window.setInterval(() => {
-      counter++;
-      setState({counter})
-    }, 1000)
-    return () => {
-      window.clearInterval(interval);
-    };
-  }, []);
+  if (suspended && !promise.current) {
+    throw new Promise(resolve => {
+      promise.current = {resolve}
+    })
+  }
+  if (!suspended && promise.current) {
+    promise.current.resolve()
+  }
+}
 
-  return counter;
-};
+export default useSuspense;

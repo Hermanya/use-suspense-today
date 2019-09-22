@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useSuspense actually does something 1`] = `
+<div>
+  Suspended!
+</div>
+`;
+
+exports[`useSuspense actually does something 2`] = `
+<section>
+  OK
+</section>
+`;
